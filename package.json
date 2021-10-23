@@ -1,0 +1,25 @@
+{
+  "name": "install",
+  "version": "1.0.0",
+  "description": "Object-Oriented Programming Challenge: Team Profile Generator",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Charlie1099/Team-Profile-Generator.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Charlie1099/Team-Profile-Generator/issues"
+  },
+  "homepage": "https://github.com/Charlie1099/Team-Profile-Generator#readme",
+  "devDependencies": {
+    "jest": "^27.2.5"
+  },
+  "dependencies": {
+    "inquirer": "^8.2.0"
+  }
+}
