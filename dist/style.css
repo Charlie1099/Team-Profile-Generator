@@ -3,22 +3,23 @@
 }
 
 :root {
-    --primary: rgb(18, 115, 212);
+    --primary: rgb(12, 67, 122);
     --secondary: white;
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: monospace;
+    background:rgb(32, 88, 88)
 }
 
 #navbar {
     background-color: var(--primary);
     color: var(--secondary);
-    font-size: 50px;
+    font-size: 60px;
 }
 
 .navbar-brand {
-    font-size: 50px;
+    font-size: 65px;
 }
 
 

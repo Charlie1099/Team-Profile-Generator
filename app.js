@@ -1,6 +1,7 @@
+// worked in study group with conley morris and the code will be similar she was a great help with this project
+// also worked with amber phillips on this as well
+
 // node mods
-
-
 const fs = require('fs');
 const inquirer = require('inquirer');
 
@@ -137,7 +138,7 @@ const newEmployee = () => {
         
         {
             type: "confirm",
-            name: "confirmEmployee",
+            name: "confirmAddEmployee",
             message: "Would you like to add more Employee's",
             default: false
         }
@@ -170,7 +171,7 @@ const newEmployee = () => {
 console.log(newEmployee)
 // fs function to write in HTML
 const writeFile = data => {
-    fs.writeFile("../dist/index.html", data, err => {
+    fs.writeFile("./dist/index.html", data, err => {
         if (err) {
             console.log(err)
             return;

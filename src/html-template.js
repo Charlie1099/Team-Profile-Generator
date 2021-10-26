@@ -10,8 +10,8 @@ const makeEngineer = function (engineer) {
            </div>
           <div class="card-body">
             <p class="id">ID: ${engineer.id}</p>
-            <p class="email">Email: <a herf="mailto:${engineer.email}">${engineer.email}</a></p>
-            <p class="github">Github: <a herf="https://github.com/${engineer.github}">${engineer.github}</a></p>
+            <p class="email">Email: <a href="mailto:${engineer.email}">${engineer.email}</a></p>
+            <p class="github">Github: <a href="https://github.com/${engineer.github}">${engineer.github}</a></p>
          </div>
        </div> 
     </div>
@@ -28,7 +28,7 @@ const makeIntern = function (intern) {
        </div>
        <div class="card-body">
         <p class="id">ID: ${intern.id}</p>
-        <p class="email">Email:<a herf="mailto:${intern.email}">${intern.email}</a></p>
+        <p class="email">Email:<a href="mailto:${intern.email}">${intern.email}</a></p>
         <p class="school">School: ${intern.school}</p>
        </div>
       </div>
@@ -46,7 +46,7 @@ const makeManager = function (manager) {
        </div>
        <div class="card-body">
             <p class="id">ID: ${manager.id}</p>
-            <p class="email">Email: <a herf="mailto:${manager.email}">${manager.email}</a></p>
+            <p class="email">Email: <a href="mailto:${manager.email}">${manager.email}</a></p>
        </div>
       </div>
     </div>
