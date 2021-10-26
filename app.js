@@ -1,12 +1,14 @@
 // node mods
 
+
 const fs = require('fs');
 const inquirer = require('inquirer');
 
-//generate page
 
+//generate page
+const generateHTML = require("./src/html-template")
 //team roles
-const Employee = require("./lib/Employee")
+
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const Manager = require("./lib/Manager");
@@ -17,7 +19,8 @@ let employeesArray = [];
 // start questions
 
 const managerQuestions = () => {
-    inquirer.prompt([
+    
+   return inquirer.prompt([
         {
             type: "input",
             name: "name",
@@ -30,7 +33,9 @@ const managerQuestions = () => {
                     return false
                 }
             }
+           
         },
+        
         {
             type: "input",
             name: "id",
@@ -82,81 +87,52 @@ const managerQuestions = () => {
         console.log(manager)
     })
 };
-
+console.log(managerQuestions)
 
 
 // employee questions
 const newEmployee = () => {
-    inquirer.prompt([
+
+  return inquirer.prompt([
+        
         {
             type: "input",
             name: "name",
             message: " What is the name of the Employee?",
-            validate: nameInput => {
-                if (nameInput) {
-                    return true;
-                } else {
-                    console.log("Please enter a name!")
-                    return false
-                }
-            }
+            
         },
         {
            type: "list",
            name: "role",
            message: "What position will the Emplyee have in the company?", 
-           choices: ["Engineer", "Intern",]
+           choices: ["Engineer", "Intern"]
+           
         },
         {
            type: "input",
            name: "id",
            message: "What is the Employee ID?",
-           validate: idInput => {
-               if (idInput) {
-                   return true
-               } else {
-                   console.log("Please enter a valade ID number!")
-                   return false
-               }
-           }
+           
         },
         {
             type: "input",
             name: "email",
             message: "What is the Employees email address?",
-            validate: emailInput => {
-                if (emailInput) {
-                    return true
-                } else {
-                    console.log("Please enter a Email address!")
-                }
-            }
+            
         },
         {
             type: "input",
             name: "github",
             message: "Please enter the Employees githud username.",
             when: (input) => input.role === "Engineer",
-            validate: nameInput => {
-                if (nameInput) {
-                    return true;
-                } else {
-                    console.log("Please enter a github username")
-                }
-            }
+            
         },
         {
             type: "input",
             name: "school",
             message: "Please enter the intern's school",
             when: (input) => input.role === "Intern",
-            validate: nameInput => {
-                if(nameInput) {
-                    return true;
-                } else {
-                    console.log("Please enter the intern's school!")
-                }
-            }
+            
         },
         
         {
@@ -191,10 +167,10 @@ const newEmployee = () => {
     })
 
 };
-
+console.log(newEmployee)
 // fs function to write in HTML
 const writeFile = data => {
-    fs.writeFile("../src/index.html", data, err => {
+    fs.writeFile("../dist/index.html", data, err => {
         if (err) {
             console.log(err)
             return;
@@ -204,10 +180,10 @@ const writeFile = data => {
     })
 };
 
-managerQuestions()
-.then(employeeQuestions)
-.then(teamArray => {
-    return generateHTML(teamArray)
+ managerQuestions()
+.then(newEmployee)
+.then(employeesArray => {
+    return generateHTML(employeesArray)
 })
 .then(pageHTML => {
     return writeFile(pageHTML)
